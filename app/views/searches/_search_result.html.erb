@@ -18,14 +18,30 @@
         ) %>
         <br>
         <%= fa_icon 'quote-left' %>
-        <%= excerpt(
-          highlight(search_result['commit']['message'], q.split(' ')),
-          '</mark>',
-          radius: 100
-        ).html_safe %>
+        <%= sanitize(
+          excerpt(
+            highlight(search_result['commit']['message'], q.split(' ')),
+            '</mark>',
+            radius: 100
+          ),
+          tags: %w(mark)
+        ) %>
         <%= fa_icon 'quote-right' %>
         <br>
         <%= link_to('Go to commit', search_result['html_url'], class: 'card-link') %>
+        <br>
+        <%= link_to(
+          'Show meme',
+          meme_path(
+            text: sanitize(
+              excerpt(
+                highlight(search_result['commit']['message'], q.split(' ')),
+                '</mark>',
+                radius: 100
+              )
+            )
+          )
+        ) %>
       </div>
     </div>
 </li>
