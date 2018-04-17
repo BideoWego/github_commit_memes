@@ -5,10 +5,18 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# ----------------------------------------
+# My Gems
+# ----------------------------------------
 gem 'httparty'
 
 group :development, :test do
   gem 'figaro'
+  gem 'hirb'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 
@@ -57,4 +65,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
