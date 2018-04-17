@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>RailsRefresher</title>
     <%= csrf_meta_tags %>
@@ -11,7 +12,12 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="<%= controller_name + '-' + action_name %>">
+    <%= render partial: 'shared/nav' %>
+
+    <main class="container">
+      <%= render partial: 'shared/flash' %>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,0 +1,18 @@
+
+<header>
+  <h1 class="text-center">Search for Commit Messages</h1>
+  <hr>
+</header>
+
+<%= form_tag('/searches', method: :get) do %>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <%= text_field_tag('q', nil, class: 'form-control', placeholder: 'Search...') %>
+        <span class="input-group-append">
+          <%= button_tag('Submit', class: 'btn btn-outline-secondary') %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>
