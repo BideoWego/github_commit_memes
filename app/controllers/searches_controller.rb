@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def index
-    if params[:q]
-      @q = params[:q]
+    @q = params[:q]
+    if @q && @q.length > 2
       @results = GithubAPI.search_commits(@q)
     else
       @results = []

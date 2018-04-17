@@ -27,13 +27,18 @@ module GithubAPI
   end
 
   def self.search_commits(q)
-    HTTParty.get(
+    response = HTTParty.get(
       "#{ api_url }/search/commits",
       query: {
         q: q,
-        access_token: api_key
+        access_token: api_key,
+        per_page: 100,
+        sort: 'committer-date',
+        order: 'desc'
       },
       headers: commit_headers
     )
+
+    response.parsed_response['items'].select { |item| item['author'] }
   end
 end

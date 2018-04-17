@@ -11,6 +11,7 @@ end
 gem 'httparty'
 gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'figaro'

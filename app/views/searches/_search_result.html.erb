@@ -1,0 +1,31 @@
+<li class="list-group-item">
+    <div class="row">
+      <div class="col-1">
+        <span><%= number %>.</span>
+      </div>
+      <div class="col-10">
+        <%= time_ago_in_words(
+          search_result['commit']['committer']['date']
+        ).titleize %>
+        <%= link_to(
+          search_result['author']['login'],
+          search_result['author']['html_url']
+        ) %>
+        committed on
+        <%= link_to(
+          search_result['repository']['full_name'],
+          search_result['repository']['html_url']
+        ) %>
+        <br>
+        <%= fa_icon 'quote-left' %>
+        <%= excerpt(
+          highlight(search_result['commit']['message'], q.split(' ')),
+          '</mark>',
+          radius: 100
+        ).html_safe %>
+        <%= fa_icon 'quote-right' %>
+        <br>
+        <%= link_to('Go to commit', search_result['html_url'], class: 'card-link') %>
+      </div>
+    </div>
+</li>
