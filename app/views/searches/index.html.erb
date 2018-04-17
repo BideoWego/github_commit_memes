@@ -4,15 +4,22 @@
   <hr>
 </header>
 
-<%= form_tag('/searches', method: :get) do %>
+<%= form_tag('/searches', method: :get, class: 'mb-4') do %>
   <div class="row">
     <div class="col">
       <div class="input-group">
-        <%= text_field_tag('q', nil, class: 'form-control', placeholder: 'Search...') %>
+        <%= text_field_tag('q', @q, class: 'form-control', placeholder: 'Search...', autofocus: true) %>
         <span class="input-group-append">
           <%= button_tag('Submit', class: 'btn btn-outline-secondary') %>
         </span>
       </div>
     </div>
   </div>
+<% end %>
+
+<h2>Results</h2>
+<% if @results.empty? %>
+  <p class="text-muted">No results yet...</p>
+<% else %>
+  <pre><%= JSON.pretty_generate(@results.parsed_response) %></pre>
 <% end %>
