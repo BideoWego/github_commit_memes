@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resource :meme, only: [:show]
   resources :searches, only: [:index]
+  resources :commits, only: [:index, :create]
   root 'searches#index'
 end

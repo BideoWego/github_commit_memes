@@ -1,0 +1,11 @@
+
+<header>
+  <h1 class="text-center">Your Saved Commits</h1>
+  <hr>
+</header>
+
+<% if @commits.empty? %>
+  <p class="text-muted">No commits yet...</p>
+<% else %>
+  <pre><%= JSON.pretty_generate(@commits.to_a) %></pre>
+<% end %>

@@ -42,6 +42,19 @@
             )
           )
         ) %>
+        <br>
+        <%= form_for(commit) do |f| %>
+          <%= f.hidden_field(:q, value: q) %>
+          <%= f.hidden_field(:sha, value: search_result['sha']) %>
+          <%= f.hidden_field(:message, value: search_result['commit']['message']) %>
+          <%= f.hidden_field(:url, value: search_result['html_url']) %>
+          <%= f.hidden_field(:user, value: search_result['author']['login']) %>
+          <%= f.hidden_field(:user_url, value: search_result['author']['html_url']) %>
+          <%= f.hidden_field(:repo, value: search_result['repository']['full_name']) %>
+          <%= f.hidden_field(:repo_url, value: search_result['repository']['html_url']) %>
+          <%= f.hidden_field(:committed_at, value: search_result['commit']['committer']['date']) %>
+          <%= f.submit('Save Commit', name: 'form_commit', class: 'btn btn-primary') %>
+        <% end %>
       </div>
     </div>
 </li>
