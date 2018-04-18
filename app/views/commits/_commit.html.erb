@@ -15,14 +15,7 @@
   with the message...
   <div class="commit-message pl-4">
     <%= fa_icon 'quote-left' %>
-    <%= sanitize(
-      excerpt(
-        highlight(commit.message, commit.q.split(' ')),
-        '</mark>',
-        radius: 100
-      ),
-      tags: %w(mark)
-    ) %>
+    <%= commit_excerpt(commit, mark: true) %>
     <%= fa_icon 'quote-right' %>
   </div>
   <div class="links">

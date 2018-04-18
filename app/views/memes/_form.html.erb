@@ -1,12 +1,1 @@
-<%= link_to(
-  'Show meme',
-  meme_path(
-    text: sanitize(
-      excerpt(
-        highlight(commit.message, commit.q.split(' ')),
-        '</mark>',
-        radius: 100
-      )
-    )
-  )
-) %>
+<%= link_to('Show meme', meme_path(text: commit_excerpt(commit))) %>
