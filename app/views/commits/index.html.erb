@@ -7,5 +7,21 @@
 <% if @commits.empty? %>
   <p class="text-muted">No commits yet...</p>
 <% else %>
-  <pre><%= JSON.pretty_generate(@commits.to_a) %></pre>
+  <ul class="list-group">
+    <li class="list-group-item border-none">
+      <% @commits.each_with_index do |commit, index| %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-1"><%= index.next %>.</div>
+            <div class="col-11">
+              <%= render partial: 'commits/commit',
+                locals: { commit: commit }
+              %>
+              <%= render partial: 'memes/form', locals: { commit: commit } %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </li>
+  </ul>
 <% end %>

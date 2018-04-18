@@ -1,0 +1,12 @@
+<%= form_for(target) do |f| %>
+  <%= f.hidden_field(:q, value: values.q) %>
+  <%= f.hidden_field(:sha, value: values.sha) %>
+  <%= f.hidden_field(:message, value: values.message) %>
+  <%= f.hidden_field(:url, value: values.url) %>
+  <%= f.hidden_field(:user, value: values.user) %>
+  <%= f.hidden_field(:user_url, value: values.user_url) %>
+  <%= f.hidden_field(:repo, value: values.repo) %>
+  <%= f.hidden_field(:repo_url, value: values.repo_url) %>
+  <%= f.hidden_field(:committed_at, value: values.committed_at) %>
+  <%= f.submit('Save Commit', name: 'form_commit', class: 'btn btn-link p-0 m-0 border-none') %>
+<% end %>

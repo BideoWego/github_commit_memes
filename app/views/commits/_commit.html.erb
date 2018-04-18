@@ -1,0 +1,31 @@
+<div class="commit">
+  <%= time_ago_in_words(
+    commit.committed_at
+  ).capitalize %>
+  ago
+  <%= link_to(
+    commit.user,
+    commit.user_url
+  ) %>
+  committed on
+  <%= link_to(
+    commit.repo,
+    commit.repo_url
+  ) %>
+  with the message...
+  <div class="commit-message pl-4">
+    <%= fa_icon 'quote-left' %>
+    <%= sanitize(
+      excerpt(
+        highlight(commit.message, commit.q.split(' ')),
+        '</mark>',
+        radius: 100
+      ),
+      tags: %w(mark)
+    ) %>
+    <%= fa_icon 'quote-right' %>
+  </div>
+  <div class="links">
+    <%= link_to('Go to commit', commit.url) %>
+  </div>
+</div>

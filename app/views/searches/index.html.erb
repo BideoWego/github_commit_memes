@@ -25,9 +25,19 @@
 <% else %>
   <ul class="list-group">
     <% @results.each_with_index do |item, index| %>
-      <%= render partial: 'search_result',
-        locals: { search_result: item, number: index.next, q: @q, commit: @commit }
-      %>
+      <li class="list-group-item border-none">
+        <div class="row">
+          <div class="col-1"><%= index.next %>.</div>
+          <div class="col-11">
+            <%= render partial: 'commits/commit',
+              locals: { commit: search_result_to_commit(@q, item) }
+            %>
+            <%= render partial: 'commits/form',
+              locals: { target: @commit, values: search_result_to_commit(@q, item) }
+            %>
+          </div>
+        </div>
+      </li>
     <% end %>
   </ul>
 <% end %>
