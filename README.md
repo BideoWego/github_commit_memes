@@ -22,3 +22,4 @@ Work in progress...
 - Gravatar
 - Check rate limit before request
 - General API error checking/handling
+- AWS S3 integration for meme images
