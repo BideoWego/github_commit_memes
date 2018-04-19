@@ -40,4 +40,16 @@ module GithubAPI
 
     response.parsed_response['items'].select { |item| item['author'] }
   end
+
+  def self.rate_limit
+    response = HTTParty.get(
+      "#{ api_url }/rate_limit",
+      query: {
+        access_token: api_key
+      },
+      headers: default_headers
+    )
+
+    response.parsed_response
+  end
 end
