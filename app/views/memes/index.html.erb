@@ -1,0 +1,19 @@
+
+<header>
+  <h1 class="text-center">Your Saved Memes</h1>
+  <hr>
+</header>
+
+<% if @memes.empty? %>
+  <p class="text-muted">No memes yet...</p>
+<% else %>
+  <div class="row">
+    <% @memes.each_with_index do |meme, index| %>
+      <div class="col-4">
+        <%= link_to(meme_path(meme)) do %>
+          <%= render meme %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

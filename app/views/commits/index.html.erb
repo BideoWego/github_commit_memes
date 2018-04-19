@@ -13,10 +13,8 @@
         <div class="row">
           <div class="col-1"><%= index.next %>.</div>
           <div class="col-11">
-            <%= render partial: 'commits/commit',
-              locals: { commit: commit }
-            %>
-            <%= render partial: 'memes/form', locals: { commit: commit } %>
+            <%= render commit %>
+            <%= render partial: 'memes/preview_form', locals: { commit: commit } %>
           </div>
         </div>
       </li>

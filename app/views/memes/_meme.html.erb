@@ -1,0 +1,12 @@
+<div class="card">
+  <img class="card-img-top" src="<%= meme.url %>" alt="<%= [meme.top_text, meme.bottom_text].join(', ') %>">
+  <div class="card-body">
+    <p class="card-text text-center">
+      <%= fa_icon 'quote-left' %>
+      <%= meme.top_text %>,
+      <br>
+      <%= meme.bottom_text %>
+      <%= fa_icon 'quote-right' %>
+    </p>
+  </div>
+</div>

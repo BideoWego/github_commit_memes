@@ -1,0 +1,7 @@
+<%= link_to(
+  'Preview meme',
+  preview_meme_path(
+    text: commit_excerpt(commit),
+    commit_id: commit.id
+  )
+) %>

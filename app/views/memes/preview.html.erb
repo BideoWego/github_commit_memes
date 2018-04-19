@@ -1,0 +1,10 @@
+<header>
+  <h1 class="text-center">Meme Preview</h1>
+</header>
+
+<div class="text-center">
+  <img src="<%= @img_url %>" alt="Image" class="img-responsive rounded">
+  <div class="mt-2">
+    <%= render partial: 'form', locals: { meme: @meme } %>
+  </div>
+</div>

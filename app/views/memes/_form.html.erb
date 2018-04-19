@@ -1,1 +1,9 @@
-<%= link_to('Show meme', meme_path(text: commit_excerpt(commit))) %>
+<%= form_for(meme) do |f| %>
+  <%= f.hidden_field(:url) %>
+  <%= f.hidden_field(:top_text) %>
+  <%= f.hidden_field(:bottom_text) %>
+  <%= f.hidden_field(:imgflip_url) %>
+  <%= f.hidden_field(:imgflip_id) %>
+  <%= f.hidden_field(:commit_id) %>
+  <%= f.submit('Save this Meme!', class: 'btn btn-primary') %>
+<% end %>

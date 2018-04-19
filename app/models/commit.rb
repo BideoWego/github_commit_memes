@@ -1,4 +1,6 @@
 class Commit < ApplicationRecord
+  has_many :memes
+
   validates :q,
     :sha,
     :url,

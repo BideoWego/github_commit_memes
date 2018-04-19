@@ -1,4 +1,4 @@
-module Meme
+module MemeAPI
   IMGFLIP_API_USERNAME = ENV['IMGFLIP_API_USERNAME']
   IMGFLIP_API_PASSWORD = ENV['IMGFLIP_API_PASSWORD']
   IMGFLIP_API_ENDPOINT = 'https://api.imgflip.com'
@@ -16,7 +16,7 @@ module Meme
   end
 
   def self.create(bottom_text)
-    HTTParty.post(
+    response = HTTParty.post(
       "#{ api_url }/caption_image",
       body: {
         template_id: 61579,
@@ -29,5 +29,7 @@ module Meme
         'User-Agent': 'NoBot E-Special'
       }
     )
+
+    response.parsed_response
   end
 end

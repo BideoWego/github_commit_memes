@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418001859) do
+ActiveRecord::Schema.define(version: 20180419014246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20180418001859) do
     t.index ["url"], name: "index_commits_on_url"
     t.index ["user"], name: "index_commits_on_user"
     t.index ["user_url"], name: "index_commits_on_user_url"
+  end
+
+  create_table "memes", force: :cascade do |t|
+    t.string "url", null: false
+    t.string "top_text", null: false
+    t.string "bottom_text", null: false
+    t.string "imgflip_url", null: false
+    t.integer "imgflip_id", null: false
+    t.integer "commit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bottom_text"], name: "index_memes_on_bottom_text"
+    t.index ["imgflip_id"], name: "index_memes_on_imgflip_id"
+    t.index ["top_text"], name: "index_memes_on_top_text"
   end
 
 end

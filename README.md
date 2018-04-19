@@ -23,3 +23,4 @@ Work in progress...
 - Check rate limit before request
 - General API error checking/handling
 - AWS S3 integration for meme images
+- Use Github API v4 if possible
