@@ -8,20 +8,18 @@
   <p class="text-muted">No commits yet...</p>
 <% else %>
   <ul class="list-group">
-    <li class="list-group-item border-none">
-      <% @commits.each_with_index do |commit, index| %>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-1"><%= index.next %>.</div>
-            <div class="col-11">
-              <%= render partial: 'commits/commit',
-                locals: { commit: commit }
-              %>
-              <%= render partial: 'memes/form', locals: { commit: commit } %>
-            </div>
+    <% @commits.each_with_index do |commit, index| %>
+      <li class="list-group-item border-none">
+        <div class="row">
+          <div class="col-1"><%= index.next %>.</div>
+          <div class="col-11">
+            <%= render partial: 'commits/commit',
+              locals: { commit: commit }
+            %>
+            <%= render partial: 'memes/form', locals: { commit: commit } %>
           </div>
-        </li>
-      <% end %>
-    </li>
+        </div>
+      </li>
+    <% end %>
   </ul>
 <% end %>
