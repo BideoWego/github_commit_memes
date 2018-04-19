@@ -1,4 +1,4 @@
-# git_meme
+# Github Commit Memes
 
 Create memes from Github commit messages
 
