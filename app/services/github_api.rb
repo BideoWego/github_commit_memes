@@ -33,8 +33,7 @@ module GithubAPI
         q: q,
         access_token: api_key,
         per_page: 100,
-        sort: 'committer-date',
-        order: 'desc'
+        sort: 'committer-date'
       },
       headers: commit_headers
     )
