@@ -20,3 +20,5 @@ Work in progress...
 - Like memes
 - Comment on memes
 - Gravatar
+- Check rate limit before request
+- General API error checking/handling
